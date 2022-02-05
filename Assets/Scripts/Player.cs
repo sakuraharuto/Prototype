@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {   
 
     [SerializeField] float moveSpeed = 5f;
     Rigidbody2D rb2d;
+    Vector2 moveInput;
     
 
     // Start is called before the first frame update
@@ -17,22 +19,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {   
-        float x = Input.GetAxis("Horizontal");
-        //float y = Input.GetAxis("Vertical");
+        PlayerRun();
+    }
 
-        Vector3 moveVector = new Vector3(x, 0, 0);
+    void OnMove(InputValue value){
+        moveInput = value.Get<Vector2>();
+        Debug.Log(moveInput);
+    }
 
-        moveVector = moveVector.normalized * moveSpeed * Time.deltaTime;
-
-        rb2d.MovePosition(rb2d.transform.position + moveVector);
-
-        // Use rigidbody instead
-        /*
-        if (Input.GetKey(KeyCode.RightArrow)){
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        } else if (Input.GetKey(KeyCode.LeftArrow)){
-            transform.position += Vector3.left *moveSpeed * Time.deltaTime;
-        }
-        */
+    void PlayerRun(){
+        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+        rb2d.velocity = playerVelocity;
     }
 }
