@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 741500788}
   - component: {fileID: 741500787}
   - component: {fileID: 741500789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Land
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  jumpSpeed: 5
 --- !u!114 &776815660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +505,7 @@ GameObject:
   - component: {fileID: 1990192003}
   - component: {fileID: 1990192002}
   - component: {fileID: 1990192004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Land2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
