@@ -10,15 +10,18 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
     Rigidbody2D rb2d;
-    BoxCollider2D bc2d;
+    CircleCollider2D bc2d;
     Vector2 moveInput;
+    BoxCollider2D TD;
     
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        bc2d = GetComponent<BoxCollider2D>();
+        //bc2d = GetComponent<CircleCollider2D>();
+        TD = GetComponent<BoxCollider2D>();
+
     }
 
     void Update()
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour
     }
 
     void OnJump(InputValue value){
-        if(bc2d.IsTouchingLayers(LayerMask.GetMask("Ground"))){
+        if(TD.IsTouchingLayers(LayerMask.GetMask("Ground"))){
             if(value.isPressed){
             rb2d.velocity += new Vector2(0f, jumpSpeed);
             }
