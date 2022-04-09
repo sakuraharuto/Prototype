@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     void Update()
     {   
         PlayerRun();
+        FlipScript();
     }
 
     void OnMove(InputValue value){
@@ -46,4 +47,14 @@ public class Player : MonoBehaviour
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
         rb2d.velocity = playerVelocity;
     }
+
+    void FlipScript(){
+
+        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        if(playerHasHoriontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rb2d.velocity.x),1f);
+        }
+    }
+    
 }
