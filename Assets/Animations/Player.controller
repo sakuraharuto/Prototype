@@ -39,7 +39,6 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1363490134711031777}
-  - {fileID: -5062318637841514579}
   - {fileID: 5287852900944971592}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -122,9 +121,6 @@ AnimatorStateMachine:
     m_State: {fileID: -9177587352549830185}
     m_Position: {x: 500, y: 60, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 4201492849086818140}
-    m_Position: {x: 500, y: 260, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 2375724164929748706}
     m_Position: {x: 500, y: 160, z: 0}
   m_ChildStateMachines: []
@@ -172,12 +168,6 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: is running
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: is climbing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
