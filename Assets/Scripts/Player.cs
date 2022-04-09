@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     CircleCollider2D bc2d;
     Vector2 moveInput;
     BoxCollider2D TD;
+    Animator myAnimator;
     
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         //bc2d = GetComponent<CircleCollider2D>();
         TD = GetComponent<BoxCollider2D>();
+        myAnimator = GetComponent<Animator>();
 
     }
 
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
     void PlayerRun(){
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
         rb2d.velocity = playerVelocity;
+        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("is running",playerHasHoriontalSpeed); 
     }
 
     void FlipScript(){
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(rb2d.velocity.x),1f);
         }
+
     }
     
 }
