@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InstructionsForDestruction : MonoBehaviour
 {
+    Rigidbody2D rb;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +21,8 @@ public class InstructionsForDestruction : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) 
     {
         Destroy(gameObject , 1.5f);
+        
     }
+
+ 
 }

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2d;
     CircleCollider2D bc2d;
     Vector2 moveInput;
-    BoxCollider2D TD;
+    CapsuleCollider2D TD;
     Animator myAnimator;
     
 
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         //bc2d = GetComponent<CircleCollider2D>();
-        TD = GetComponent<BoxCollider2D>();
+        TD = GetComponent<CapsuleCollider2D>();
         myAnimator = GetComponent<Animator>();
 
     }
