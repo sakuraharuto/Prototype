@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 //check
 //check
 public class Player : MonoBehaviour
-{   
+{
 
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     Vector2 moveInput;
     CapsuleCollider2D TD;
     Animator myAnimator;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,40 +27,50 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+        if (PauseManager.paused)
+        {
+            return; // Do nothing when the game is paused
+        }
         PlayerRun();
         FlipScript();
     }
 
-    void OnMove(InputValue value){
+    void OnMove(InputValue value)
+    {
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
 
-    void OnJump(InputValue value){
-        if(TD.IsTouchingLayers(LayerMask.GetMask("Ground"))){
-            if(value.isPressed){
-            rb2d.velocity += new Vector2(0f, jumpSpeed);
-            }
-        } 
-        
-    }
-
-    void PlayerRun(){
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
-        rb2d.velocity = playerVelocity;
-        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("is running",playerHasHoriontalSpeed); 
-    }
-
-    void FlipScript(){
-
-        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
-        if(playerHasHoriontalSpeed)
+    void OnJump(InputValue value)
+    {
+        if (TD.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
-            transform.localScale = new Vector2(Mathf.Sign(rb2d.velocity.x),1f);
+            if (value.isPressed)
+            {
+                rb2d.velocity += new Vector2(0f, jumpSpeed);
+            }
         }
 
     }
-    
+
+    void PlayerRun()
+    {
+        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.velocity.y);
+        rb2d.velocity = playerVelocity;
+        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("is running", playerHasHoriontalSpeed);
+    }
+
+    void FlipScript()
+    {
+
+        bool playerHasHoriontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        if (playerHasHoriontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rb2d.velocity.x), 1f);
+        }
+
+    }
+
 }
