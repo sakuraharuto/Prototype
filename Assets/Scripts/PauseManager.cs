@@ -6,7 +6,7 @@ public class PauseManager : MonoBehaviour
 {
     PauseAction pauseAction;
     public static bool paused = false;
-    public GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu;
 
     private void Awake()
     {
