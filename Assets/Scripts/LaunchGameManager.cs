@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerReset : MonoBehaviour
+public class LaunchGameManager : MonoBehaviour
 {
-void Update()
-{
-    if(Input.GetKeyDown (KeyCode.R))
-    {
+    public void StartFirstLevel(){
         SceneManager.LoadScene(1);
     }
-}
 }
