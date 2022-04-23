@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
 {
     PauseAction pauseAction;
     public static bool paused = false;
+    public GameObject pauseMenu;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         paused = true;
+        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
@@ -44,5 +46,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         paused = false;
+        pauseMenu.SetActive(false);
     }
 }
