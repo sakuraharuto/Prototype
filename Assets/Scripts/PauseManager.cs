@@ -51,8 +51,10 @@ public class PauseManager : MonoBehaviour
     }
 
     public void ReturnMainMenu()
-    {
+    {   
+        if (paused){
+            ResumeGame();
+        }
         SceneManager.LoadScene(0);
-        ResumeGame();
     }
 }

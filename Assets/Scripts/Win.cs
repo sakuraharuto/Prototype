@@ -22,12 +22,12 @@ public class Win : MonoBehaviour
                 Debug.Log("You Win");
                 effect.Play();
                 source.PlayOneShot(clip);
-                Invoke("ReloadScene", delayTime);
+                Invoke("ToNextScene", delayTime);
         }
     }
     
 
-    void ReloadScene(){
-        SceneManager.LoadScene(0);
+    void ToNextScene(){
+        SceneManager.LoadScene(2);
     }
 }
