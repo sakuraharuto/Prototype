@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -47,5 +48,11 @@ public class PauseManager : MonoBehaviour
         AudioListener.pause = false;
         paused = false;
         pauseMenu.SetActive(false);
+    }
+
+    public void ReturnMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        ResumeGame();
     }
 }
