@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Thank you for playing our demo. \n\nCreator: Sam Yaoxi, Bangyu Wang, Haoyuan
-    Guan,Yiming Liu"
+    Guan,Yiming Liu\n\nSpeical thanks to our professor:\nSamantha Gorman"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: abfeb782c1cbf41b99aad16e4edc392b, type: 2}
   m_sharedMaterial: {fileID: -1127130016498155650, guid: abfeb782c1cbf41b99aad16e4edc392b, type: 2}
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -49.795288, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
