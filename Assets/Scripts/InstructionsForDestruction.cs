@@ -5,6 +5,8 @@ using UnityEngine;
 public class InstructionsForDestruction : MonoBehaviour
 {
     Rigidbody2D rb;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clip;
     
 
     // Start is called before the first frame update
@@ -19,7 +21,8 @@ public class InstructionsForDestruction : MonoBehaviour
         
     }
     void OnCollisionEnter2D(Collision2D other) 
-    {
+    {   
+        audioSource.PlayOneShot(clip);
         Destroy(gameObject , 1.5f);
         
     }
